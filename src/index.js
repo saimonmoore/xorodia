@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import ThemeWrapper from "./components/ThemeWrapper";
@@ -10,7 +10,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <ThemeWrapper>
-        <App />
+        <Suspense fallback={<div>Loading...</div>}>
+          <App />
+        </Suspense>
       </ThemeWrapper>
     </Router>
   </React.StrictMode>,

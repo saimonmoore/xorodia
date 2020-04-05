@@ -16,8 +16,8 @@ const CSSReset = createGlobalStyle`
     background: ${({ theme }) => theme.colors.appBackground};
     color: ${({ theme }) => theme.colors.primaryText};
     font-family: ${({ theme }) => theme.fontFamily};
-    font-size: ${({ theme }) => theme.fontSizes[2]};
-    line-height: ${({ theme }) => theme.lineHeights[2]};
+    font-size: ${({ theme }) => `calc(${theme.fontSizes[2]} + 1vw);`};
+    line-height: ${({ theme }) => `calc(${theme.lineHeights[2]} + 0.5vw)`};
   }
 
   ul,

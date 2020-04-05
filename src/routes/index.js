@@ -1,6 +1,8 @@
-import Home from "./Home";
-import About from "./About";
-import ChoirPage from "./ChoirPage";
-import DirectorPage from "./DirectorPage";
+import { lazy } from "react";
+
+const Home = lazy(() => import("./Home"));
+const About = lazy(() => import("./About"));
+const ChoirPage = lazy(() => import("./ChoirPage"));
+const DirectorPage = lazy(() => import("./DirectorPage"));
 
 export { Home, About, ChoirPage, DirectorPage };
