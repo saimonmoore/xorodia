@@ -1,23 +1,25 @@
 import React from "react";
-
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import ThemeWrapper from "./components/ThemeWrapper";
+import { Switch, Route } from "react-router-dom";
 
 import { routes } from "./helpers";
 import { Home, About, ChoirPage, DirectorPage } from "./routes";
 
 const App = () => {
   return (
-    <ThemeWrapper>
-      <Router>
-        <Switch>
-          <Route path={routes.root} component={Home} />
-          <Route path={routes.about} component={About} />
-          <Route path={routes.choir} component={ChoirPage} />
-          <Route path={routes.director} component={DirectorPage} />
-        </Switch>
-      </Router>
-    </ThemeWrapper>
+    <Switch>
+      <Route path={routes.about}>
+        <About />
+      </Route>
+      <Route path={routes.choir}>
+        <ChoirPage />
+      </Route>
+      <Route path={routes.director}>
+        <DirectorPage />
+      </Route>
+      <Route path={routes.root}>
+        <Home />
+      </Route>
+    </Switch>
   );
 };
 
