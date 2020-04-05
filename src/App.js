@@ -28,8 +28,8 @@ const HomeWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 800px;
+  width: 100vw;
+  height: 100vh;
 
   > * {
     &:not(:first-child) {
