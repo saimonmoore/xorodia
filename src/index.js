@@ -2,15 +2,15 @@ import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import ThemeWrapper from "./components/ThemeWrapper";
-import "./index.css";
 import App from "./App";
+import Loading from "./components/Loading";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <ThemeWrapper>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loading />}>
           <App />
         </Suspense>
       </ThemeWrapper>

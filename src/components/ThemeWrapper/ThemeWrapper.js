@@ -4,14 +4,21 @@ import { ThemeProvider } from "styled-components";
 import { baseTheme } from "./theme";
 import { GlobalStyles } from "./GlobalStyles";
 
-const ThemeWrapper = ({ children }) => (
-  <ThemeProvider theme={baseTheme}>
-    <>
-      <GlobalStyles />
-      {children}
-    </>
-  </ThemeProvider>
-);
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+
+const ThemeWrapper = ({ children }) => {
+  library.add(fas);
+
+  return (
+    <ThemeProvider theme={baseTheme}>
+      <>
+        <GlobalStyles />
+        {children}
+      </>
+    </ThemeProvider>
+  );
+};
 
 ThemeWrapper.propTypes = {
   children: PropTypes.node.isRequired,
