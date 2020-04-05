@@ -20,40 +20,35 @@ const HomeWrapper = styled.div`
   }
 `;
 
-const ChoirImage = styled.img`
+const ImageButton = styled.img`
   height: 80px;
   width: 80px;
   cursor: pointer;
+  opacity: 0.2;
+
+  &:hover {
+    opacity: 1;
+  }
 `;
 
-const DirectorImage = styled.img`
-  height: 80px;
-  width: 80px;
-  cursor: pointer;
-`;
+const ChoirImage = ({ onClick }) => (
+  <ImageButton src={choirAvatar} alt="Choir Login" onClick={onClick} />
+);
+
+const DirectorImage = ({ onClick }) => (
+  <ImageButton alt="Director Login" src={directorAvatar} onClick={onClick} />
+);
 
 const ChoirLogin = () => {
   const history = useHistory();
 
-  return (
-    <ChoirImage
-      src={choirAvatar}
-      alt="Choir Login"
-      onClick={() => history.push(routes.choir)}
-    />
-  );
+  return <ChoirImage onClick={() => history.push(routes.choir)} />;
 };
 
 const DirectorLogin = () => {
   const history = useHistory();
 
-  return (
-    <DirectorImage
-      alt="Director Login"
-      src={directorAvatar}
-      onClick={() => history.push(routes.director)}
-    />
-  );
+  return <DirectorImage onClick={() => history.push(routes.director)} />;
 };
 
 const Home = () => {
