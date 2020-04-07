@@ -60,34 +60,6 @@ const SingerForm = (props) => {
         />
         <FieldError name="user" className={CSS.errorMessage} />
 
-        <Label
-          name="concerts"
-          className={CSS.label}
-          errorClassName={CSS.labelError}
-        />
-        <TextField
-          name="concerts"
-          defaultValue={props.singer?.concerts}
-          className={CSS.input}
-          errorClassName={CSS.inputError}
-          validation={{ required: true }}
-        />
-        <FieldError name="concerts" className={CSS.errorMessage} />
-
-        <Label
-          name="songs"
-          className={CSS.label}
-          errorClassName={CSS.labelError}
-        />
-        <TextField
-          name="songs"
-          defaultValue={props.singer?.songs}
-          className={CSS.input}
-          errorClassName={CSS.inputError}
-          validation={{ required: true }}
-        />
-        <FieldError name="songs" className={CSS.errorMessage} />
-
         <div className="mt-8 text-center">
           <Submit
             disabled={props.loading}

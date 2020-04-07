@@ -46,34 +46,6 @@ const PartForm = (props) => {
         />
         <FieldError name="voiceType" className={CSS.errorMessage} />
 
-        <Label
-          name="user"
-          className={CSS.label}
-          errorClassName={CSS.labelError}
-        />
-        <TextField
-          name="user"
-          defaultValue={props.part?.user}
-          className={CSS.input}
-          errorClassName={CSS.inputError}
-          validation={{ required: true }}
-        />
-        <FieldError name="user" className={CSS.errorMessage} />
-
-        <Label
-          name="songs"
-          className={CSS.label}
-          errorClassName={CSS.labelError}
-        />
-        <TextField
-          name="songs"
-          defaultValue={props.part?.songs}
-          className={CSS.input}
-          errorClassName={CSS.inputError}
-          validation={{ required: true }}
-        />
-        <FieldError name="songs" className={CSS.errorMessage} />
-
         <div className="mt-8 text-center">
           <Submit
             disabled={props.loading}

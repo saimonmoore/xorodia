@@ -73,11 +73,6 @@ const UsersList = ({ users }) => {
               <td className="p-3">{truncate(user.lastName)}</td>
               <td className="p-3">{truncate(user.lastName2)}</td>
               <td className="p-3">{truncate(user.gender)}</td>
-              <td className="p-3">{truncate(user.director)}</td>
-              <td className="p-3">{truncate(user.singer)}</td>
-              <td className="p-3">{truncate(user.songs)}</td>
-              <td className="p-3">{truncate(user.parts)}</td>
-              <td className="p-3">{truncate(user.concerts)}</td>
               <td className="p-3">{timeTag(user.createdAt)}</td>
               <td className="p-3">{timeTag(user.updatedAt)}</td>
               <td className="p-3 pr-4 text-right whitespace-no-wrap">

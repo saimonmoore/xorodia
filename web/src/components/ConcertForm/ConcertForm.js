@@ -47,34 +47,6 @@ const ConcertForm = (props) => {
         <FieldError name="dueBy" className={CSS.errorMessage} />
 
         <Label
-          name="songs"
-          className={CSS.label}
-          errorClassName={CSS.labelError}
-        />
-        <TextField
-          name="songs"
-          defaultValue={props.concert?.songs}
-          className={CSS.input}
-          errorClassName={CSS.inputError}
-          validation={{ required: true }}
-        />
-        <FieldError name="songs" className={CSS.errorMessage} />
-
-        <Label
-          name="singers"
-          className={CSS.label}
-          errorClassName={CSS.labelError}
-        />
-        <TextField
-          name="singers"
-          defaultValue={props.concert?.singers}
-          className={CSS.input}
-          errorClassName={CSS.inputError}
-          validation={{ required: true }}
-        />
-        <FieldError name="singers" className={CSS.errorMessage} />
-
-        <Label
           name="director"
           className={CSS.label}
           errorClassName={CSS.labelError}
@@ -87,20 +59,6 @@ const ConcertForm = (props) => {
           validation={{ required: true }}
         />
         <FieldError name="director" className={CSS.errorMessage} />
-
-        <Label
-          name="user"
-          className={CSS.label}
-          errorClassName={CSS.labelError}
-        />
-        <TextField
-          name="user"
-          defaultValue={props.concert?.user}
-          className={CSS.input}
-          errorClassName={CSS.inputError}
-          validation={{ required: true }}
-        />
-        <FieldError name="user" className={CSS.errorMessage} />
 
         <div className="mt-8 text-center">
           <Submit

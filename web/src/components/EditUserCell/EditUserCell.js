@@ -11,11 +11,6 @@ export const QUERY = gql`
       lastName
       lastName2
       gender
-      director
-      singer
-      songs
-      parts
-      concerts
       createdAt
       updatedAt
     }
