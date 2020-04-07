@@ -80,7 +80,7 @@ const UsersList = ({ users }) => {
                   <ul>
                     <li className="inline-block">
                       <Link
-                        to={routes.user({ id: user.id })}
+                        to={routes.adminUser({ id: user.id })}
                         title={'Show user ' + user.id + ' detail'}
                         className="text-xs bg-gray-100 text-gray-600 hover:bg-gray-600 hover:text-white rounded-sm px-2 py-1 uppercase font-semibold tracking-wide"
                       >
@@ -89,7 +89,7 @@ const UsersList = ({ users }) => {
                     </li>
                     <li className="inline-block">
                       <Link
-                        to={routes.editUser({ id: user.id })}
+                        to={routes.adminEditUser({ id: user.id })}
                         title={'Edit user ' + user.id}
                         className="text-xs bg-gray-100 text-blue-600 hover:bg-blue-600 hover:text-white rounded-sm px-2 py-1 uppercase font-semibold tracking-wide"
                       >

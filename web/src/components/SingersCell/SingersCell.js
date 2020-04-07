@@ -9,9 +9,6 @@ export const QUERY = gql`
       defaultPart
       createdAt
       updatedAt
-      user
-      concerts
-      songs
     }
   }
 `
@@ -27,7 +24,7 @@ export const Empty = () => {
     <div className="text-center">
       {'No singers yet. '}
       <Link
-        to={routes.newSinger()}
+        to={routes.adminNewSinger()}
         className="text-blue-500 underline hover:text-blue-700"
       >
         {'Create one?'}

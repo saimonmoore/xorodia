@@ -6,11 +6,6 @@ export const QUERY = gql`
       id
       createdAt
       updatedAt
-      user
-      concerts
-      singer
-      director
-      parts
     }
   }
 `

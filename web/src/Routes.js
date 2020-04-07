@@ -12,30 +12,114 @@ import { Router, Route } from '@redwoodjs/router'
 const Routes = () => {
   return (
     <Router>
-      <Route path="/directors/new" page={NewDirectorPage} name="newDirector" />
-      <Route path="/directors/{id:Int}/edit" page={EditDirectorPage} name="editDirector" />
-      <Route path="/directors/{id:Int}" page={DirectorPage} name="director" />
-      <Route path="/directors" page={DirectorsPage} name="directors" />
-      <Route path="/concerts/new" page={NewConcertPage} name="newConcert" />
-      <Route path="/concerts/{id:Int}/edit" page={EditConcertPage} name="editConcert" />
-      <Route path="/concerts/{id:Int}" page={ConcertPage} name="concert" />
-      <Route path="/concerts" page={ConcertsPage} name="concerts" />
-      <Route path="/parts/new" page={NewPartPage} name="newPart" />
-      <Route path="/parts/{id:Int}/edit" page={EditPartPage} name="editPart" />
-      <Route path="/parts/{id:Int}" page={PartPage} name="part" />
-      <Route path="/parts" page={PartsPage} name="parts" />
-      <Route path="/songs/new" page={NewSongPage} name="newSong" />
-      <Route path="/songs/{id:Int}/edit" page={EditSongPage} name="editSong" />
-      <Route path="/songs/{id:Int}" page={SongPage} name="song" />
-      <Route path="/songs" page={SongsPage} name="songs" />
-      <Route path="/singers/new" page={NewSingerPage} name="newSinger" />
-      <Route path="/singers/{id:Int}/edit" page={EditSingerPage} name="editSinger" />
-      <Route path="/singers/{id:Int}" page={SingerPage} name="singer" />
-      <Route path="/singers" page={SingersPage} name="singers" />
-      <Route path="/users/new" page={NewUserPage} name="newUser" />
-      <Route path="/users/{id:Int}/edit" page={EditUserPage} name="editUser" />
-      <Route path="/users/{id:Int}" page={UserPage} name="user" />
-      <Route path="/users" page={UsersPage} name="users" />
+      <Route
+        path="/admin/directors/new"
+        page={NewDirectorAdminPage}
+        name="adminNewDirector"
+      />
+      <Route
+        path="/admin/directors/{id:Int}/edit"
+        page={EditDirectorAdminPage}
+        name="adminEditDirector"
+      />
+      <Route
+        path="/admin/directors/{id:Int}"
+        page={DirectorAdminPage}
+        name="adminDirector"
+      />
+      <Route
+        path="/admin/directors"
+        page={DirectorsAdminPage}
+        name="adminDirectors"
+      />
+      <Route
+        path="/admin/concerts/new"
+        page={NewConcertAdminPage}
+        name="adminNewConcert"
+      />
+      <Route
+        path="/admin/concerts/{id:Int}/edit"
+        page={EditConcertAdminPage}
+        name="adminEditConcert"
+      />
+      <Route
+        path="/admin/concerts/{id:Int}"
+        page={ConcertAdminPage}
+        name="adminConcert"
+      />
+      <Route
+        path="/admin/concerts"
+        page={ConcertsAdminPage}
+        name="adminConcerts"
+      />
+      <Route
+        path="/admin/parts/new"
+        page={NewPartAdminPage}
+        name="adminNewPart"
+      />
+      <Route
+        path="/admin/parts/{id:Int}/edit"
+        page={EditPartAdminPage}
+        name="adminEditPart"
+      />
+      <Route
+        path="/admin/parts/{id:Int}"
+        page={PartAdminPage}
+        name="adminPart"
+      />
+      <Route path="/admin/parts" page={PartsAdminPage} name="adminParts" />
+      <Route
+        path="/admin/songs/new"
+        page={NewSongAdminPage}
+        name="adminNewSong"
+      />
+      <Route
+        path="/admin/songs/{id:Int}/edit"
+        page={EditSongAdminPage}
+        name="adminEditSong"
+      />
+      <Route
+        path="/admin/songs/{id:Int}"
+        page={SongAdminPage}
+        name="adminSong"
+      />
+      <Route path="/admin/songs" page={SongsAdminPage} name="adminSongs" />
+      <Route
+        path="/admin/singers/new"
+        page={NewSingerAdminPage}
+        name="adminNewSinger"
+      />
+      <Route
+        path="/admin/singers/{id:Int}/edit"
+        page={EditSingerAdminPage}
+        name="adminEditSinger"
+      />
+      <Route
+        path="/admin/singers/{id:Int}"
+        page={SingerAdminPage}
+        name="adminSinger"
+      />
+      <Route
+        path="/admin/singers"
+        page={SingersAdminPage}
+        name="adminSingers"
+      />
+      <Route
+        path="/admin/users/new"
+        page={NewUserAdminPage}
+        name="adminNewUser"
+      />
+      <Route
+        path="/admin/users/{id:Int}/edit"
+        page={EditUserAdminPage}
+        name="adminEditUser"
+      />
+      <Route
+        path="/admin/users/{id:Int}"
+        page={UserAdminPage}
+        name="adminUser"
+      />
+      <Route path="/admin/users" page={UsersAdminPage} name="adminUsers" />
       <Route path="/director" page={DirectorPage} name="director" />
       <Route path="/choir" page={ChoirPage} name="choir" />
       <Route path="/about" page={AboutPage} name="about" />

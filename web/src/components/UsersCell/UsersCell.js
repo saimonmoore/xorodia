@@ -28,7 +28,7 @@ export const Empty = () => {
     <div className="text-center">
       {'No users yet. '}
       <Link
-        to={routes.newUser()}
+        to={routes.adminNewUser()}
         className="text-blue-500 underline hover:text-blue-700"
       >
         {'Create one?'}

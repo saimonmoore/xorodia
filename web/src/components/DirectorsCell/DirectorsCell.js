@@ -8,9 +8,6 @@ export const QUERY = gql`
       id
       createdAt
       updatedAt
-      user
-      songs
-      concerts
     }
   }
 `
@@ -26,7 +23,7 @@ export const Empty = () => {
     <div className="text-center">
       {'No directors yet. '}
       <Link
-        to={routes.newDirector()}
+        to={routes.adminNewDirector()}
         className="text-blue-500 underline hover:text-blue-700"
       >
         {'Create one?'}

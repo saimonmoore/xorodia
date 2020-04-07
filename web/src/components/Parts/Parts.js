@@ -71,7 +71,7 @@ const PartsList = ({ parts }) => {
                   <ul>
                     <li className="inline-block">
                       <Link
-                        to={routes.part({ id: part.id })}
+                        to={routes.adminPart({ id: part.id })}
                         title={'Show part ' + part.id + ' detail'}
                         className="text-xs bg-gray-100 text-gray-600 hover:bg-gray-600 hover:text-white rounded-sm px-2 py-1 uppercase font-semibold tracking-wide"
                       >
@@ -80,7 +80,7 @@ const PartsList = ({ parts }) => {
                     </li>
                     <li className="inline-block">
                       <Link
-                        to={routes.editPart({ id: part.id })}
+                        to={routes.adminEditPart({ id: part.id })}
                         title={'Edit part ' + part.id}
                         className="text-xs bg-gray-100 text-blue-600 hover:bg-blue-600 hover:text-white rounded-sm px-2 py-1 uppercase font-semibold tracking-wide"
                       >

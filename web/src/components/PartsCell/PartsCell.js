@@ -26,7 +26,7 @@ export const Empty = () => {
     <div className="text-center">
       {'No parts yet. '}
       <Link
-        to={routes.newPart()}
+        to={routes.adminNewPart()}
         className="text-blue-500 underline hover:text-blue-700"
       >
         {'Create one?'}

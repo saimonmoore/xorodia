@@ -28,7 +28,7 @@ export const Empty = () => {
     <div className="text-center">
       {'No concerts yet. '}
       <Link
-        to={routes.newConcert()}
+        to={routes.adminNewConcert()}
         className="text-blue-500 underline hover:text-blue-700"
       >
         {'Create one?'}

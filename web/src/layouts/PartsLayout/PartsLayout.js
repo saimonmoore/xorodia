@@ -7,14 +7,14 @@ const PartsLayout = (props) => {
         <header className="flex justify-between py-4 px-8">
           <h1 className="text-xl font-semibold">
             <Link
-              to={routes.parts()}
+              to={routes.adminParts()}
               className="text-gray-700 hover:text-gray-900 hover:underline"
             >
               Parts
             </Link>
           </h1>
           <Link
-            to={routes.newPart()}
+            to={routes.adminNewPart()}
             className="flex bg-green-500 hover:bg-green-600 text-white text-xs font-semibold px-3 py-1 uppercase tracking-wide rounded"
           >
             <div className="text-xl leading-none">+</div>

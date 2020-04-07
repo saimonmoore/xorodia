@@ -75,7 +75,7 @@ const SongsList = ({ songs }) => {
                   <ul>
                     <li className="inline-block">
                       <Link
-                        to={routes.song({ id: song.id })}
+                        to={routes.adminSong({ id: song.id })}
                         title={'Show song ' + song.id + ' detail'}
                         className="text-xs bg-gray-100 text-gray-600 hover:bg-gray-600 hover:text-white rounded-sm px-2 py-1 uppercase font-semibold tracking-wide"
                       >
@@ -84,7 +84,7 @@ const SongsList = ({ songs }) => {
                     </li>
                     <li className="inline-block">
                       <Link
-                        to={routes.editSong({ id: song.id })}
+                        to={routes.adminEditSong({ id: song.id })}
                         title={'Edit song ' + song.id}
                         className="text-xs bg-gray-100 text-blue-600 hover:bg-blue-600 hover:text-white rounded-sm px-2 py-1 uppercase font-semibold tracking-wide"
                       >

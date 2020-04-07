@@ -8,11 +8,6 @@ export const QUERY = gql`
       id
       createdAt
       updatedAt
-      user
-      concerts
-      singer
-      director
-      parts
     }
   }
 `
@@ -28,7 +23,7 @@ export const Empty = () => {
     <div className="text-center">
       {'No songs yet. '}
       <Link
-        to={routes.newSong()}
+        to={routes.adminNewSong()}
         className="text-blue-500 underline hover:text-blue-700"
       >
         {'Create one?'}

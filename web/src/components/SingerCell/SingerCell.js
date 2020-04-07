@@ -7,9 +7,6 @@ export const QUERY = gql`
       defaultPart
       createdAt
       updatedAt
-      user
-      concerts
-      songs
     }
   }
 `
