@@ -1,0 +1,98 @@
+datasource DS {
+  provider = "postgresql"
+  url = "***"
+}
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = env("BINARY_TARGET")
+}
+
+// Define your own datamodels here and run `yarn redwood db save` to create
+// migrations for them.
+
+enum Gender {
+  FEMALE
+  MALE
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  email String @unique
+  firstName String?
+  lastName String?
+  lastName2 String?
+  gender Gender @default(FEMALE)
+  director Director?
+  singer Singer?
+  songs Song[]
+  parts Part[]
+  concerts Concert[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Singer {
+  id Int @id @default(autoincrement())
+  defaultPart VoiceType?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User
+  concerts Concert[]
+  songs Song[]
+}
+
+model Director {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User
+  songs Song[]
+  concerts Concert[]
+}
+
+model Song {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User?
+  concerts Concert[]
+  singer Singer
+  director Director
+  parts Part[]
+}
+
+enum VoiceType {
+  SOPRANO
+  MEZZOSOPRANO
+  CONTRALTO
+  COUNTERTENOR
+  TENOR
+  TREBLE
+  BARITONE
+  BASS
+}
+
+model Part {
+  id Int @id @default(autoincrement())
+  voiceType VoiceType
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User?
+  songs Song[]
+}
+
+model Concert {
+  id Int @id @default(autoincrement())
+  dueBy DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  songs Song[]
+  singers Singer[]
+  director Director
+}
