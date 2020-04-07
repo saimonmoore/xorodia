@@ -1,13 +1,11 @@
-import AppLayout from 'src/layouts/AppLayout'
+import DirectorsLayout from 'src/layouts/DirectorsLayout'
+import DirectorCell from 'src/components/DirectorCell'
 
-const DirectorPage = () => {
+const DirectorPage = ({ id }) => {
   return (
-    <AppLayout>
-      <div>
-        <h1>DirectorPage</h1>
-        <p>Find me in ./web/src/pages/DirectorPage/DirectorPage.js</p>
-      </div>
-    </AppLayout>
+    <DirectorsLayout>
+      <DirectorCell id={id} />
+    </DirectorsLayout>
   )
 }
 
