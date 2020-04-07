@@ -7,8 +7,8 @@ const AppLayout = ({ children }) => {
 
   return (
     <>
-      {!loading && <Loading />}
-      {loading && (
+      {loading && <Loading />}
+      {!loading && (
         <header>
           <h1>Xorodia</h1>
           <nav>

@@ -1,11 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
+import { themeGet } from '@styled-system/theme-get'
 import { routes, navigate, usePageLoadingContext } from '@redwoodjs/router'
 
 import Loading from 'src/components/Loading'
 
 import choirAvatar from './assets/choirAvatar.png'
 import directorAvatar from './assets/directorAvatar.png'
+
+const HomeHeader = styled.h1`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 150px;
+  color: ${themeGet('colors.lime')};
+`
 
 const HomeWrapper = styled.div`
   display: flex;
@@ -55,10 +64,13 @@ const HomePage = () => {
     <>
       {loading && <Loading />}
       {!loading && (
-        <HomeWrapper>
-          <ChoirLogin />
-          <DirectorLogin />
-        </HomeWrapper>
+        <>
+          <HomeHeader>Xorodia</HomeHeader>
+          <HomeWrapper>
+            <ChoirLogin />
+            <DirectorLogin />
+          </HomeWrapper>
+        </>
       )}
     </>
   )
