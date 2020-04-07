@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { routes, navigate } from '@redwoodjs/router'
+import { routes, navigate, usePageLoadingContext } from '@redwoodjs/router'
+
+import Loading from 'src/components/Loading'
 
 import choirAvatar from './assets/choirAvatar.png'
 import directorAvatar from './assets/directorAvatar.png'
@@ -47,11 +49,18 @@ const DirectorLogin = () => {
 }
 
 const HomePage = () => {
+  const { loading } = usePageLoadingContext()
+
   return (
-    <HomeWrapper>
-      <ChoirLogin />
-      <DirectorLogin />
-    </HomeWrapper>
+    <>
+      {loading && <Loading />}
+      {!loading && (
+        <HomeWrapper>
+          <ChoirLogin />
+          <DirectorLogin />
+        </HomeWrapper>
+      )}
+    </>
   )
 }
 
