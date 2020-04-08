@@ -1,16 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
 import { themeGet } from '@styled-system/theme-get'
-import { routes, navigate, usePageLoadingContext } from '@redwoodjs/router'
+import {
+  routes,
+  navigate,
+  Link,
+  usePageLoadingContext,
+} from '@redwoodjs/router'
+import { useAuth } from 'react-use-auth'
 
 import Loading from 'src/components/Loading'
 
 import choirAvatar from './assets/choirAvatar.png'
 import directorAvatar from './assets/directorAvatar.png'
 
-const HomeHeader = styled.h1`
+const HomeHeader = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  margin-left: ${themeGet('space.4')};
+  margin-right: ${themeGet('space.4')};
+  font-size: ${themeGet('fontSizes.4')};
   align-items: center;
   min-height: 150px;
   color: ${themeGet('colors.lime')};
@@ -57,6 +66,49 @@ const DirectorLogin = () => {
   return <DirectorImage onClick={() => navigate(routes.director())} />
 }
 
+const Button = styled.button`
+  height: ${themeGet('lineHeights.5')};
+`
+
+const Avatar = styled.img`
+  width: 55px;
+  height: 55px;
+  border-radius: ${themeGet('radii.rounded')};
+  border: ${themeGet('borders.active')};
+`
+
+const UserInfo = styled.div`
+  display: flex;
+  justify-content: space-between;
+  min-width: 250px;
+`
+
+const Login = () => {
+  const { isAuthenticated, user, login, logout, authResult } = useAuth()
+
+  console.log('[useAuth] authResult: ', authResult)
+
+  if (isAuthenticated()) {
+    return (
+      <UserInfo>
+        Welcome {user.nickname}{' '}
+        <Avatar src={user.picture} alt={user.name} title={user.name} />
+        <Button onClick={logout}>Logout</Button>
+      </UserInfo>
+    )
+  } else {
+    return (
+      <Button
+        onClick={() => {
+          login()
+        }}
+      >
+        Login
+      </Button>
+    )
+  }
+}
+
 const HomePage = () => {
   const { loading } = usePageLoadingContext()
 
@@ -65,7 +117,11 @@ const HomePage = () => {
       {loading && <Loading />}
       {!loading && (
         <>
-          <HomeHeader>Xorodia</HomeHeader>
+          <HomeHeader>
+            <Link to={routes.about()}>About</Link>
+            <span>Xorodia</span>
+            <Login />
+          </HomeHeader>
           <HomeWrapper>
             <ChoirLogin />
             <DirectorLogin />

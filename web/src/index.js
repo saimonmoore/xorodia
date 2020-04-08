@@ -3,6 +3,7 @@ import { RedwoodProvider, FatalErrorBoundary } from '@redwoodjs/web'
 import FatalErrorPage from 'src/pages/FatalErrorPage'
 import ThemeWrapper from 'src/components/ThemeWrapper'
 import Routes from 'src/Routes'
+import { withAuth } from 'src/contexts/authentication'
 
 import './scaffold.css'
 import './index.css'
@@ -10,9 +11,7 @@ import './index.css'
 ReactDOM.render(
   <FatalErrorBoundary page={FatalErrorPage}>
     <ThemeWrapper>
-      <RedwoodProvider>
-        <Routes />
-      </RedwoodProvider>
+      <RedwoodProvider>{withAuth(<Routes />)}</RedwoodProvider>
     </ThemeWrapper>
   </FatalErrorBoundary>,
   document.getElementById('redwood-app')
