@@ -30,11 +30,11 @@ const useDbUser = ({
   authResult,
 }) => {
   const { data, loading, error } = useQuery(QUERY, {
-    variables: { email: authUser.email },
+    variables: { email: authUser.email || '' },
   })
 
   return {
-    user: data.user,
+    user: data && data.user,
     loading,
     error,
     isAuthenticated,
