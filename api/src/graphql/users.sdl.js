@@ -5,6 +5,7 @@ export const schema = gql`
     firstName: String
     lastName: String
     lastName2: String
+    picture: String
     gender: Gender!
     director: Director
     singer: Singer
@@ -18,6 +19,7 @@ export const schema = gql`
   type Query {
     users: [User]
     user(id: Int!): User
+    userByEmail(email: String!): User
   }
 
   input UserInput {

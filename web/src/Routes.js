@@ -9,6 +9,8 @@
 
 import { Router, Route } from '@redwoodjs/router'
 
+// TODO: Add AuthPolicy middleware:
+// - checks if logged user as associated db user and redirects
 const Routes = () => {
   return (
     <Router>

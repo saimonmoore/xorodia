@@ -5,10 +5,10 @@ import {
   usePageLoadingContext,
 } from '@redwoodjs/router'
 import { useAuth } from 'react-use-auth'
-
+import App from 'src/components/App'
 import Loading from 'src/components/Loading'
 
-const AppLayout = ({ children }) => {
+const Layout = ({ children }) => {
   const { loading } = usePageLoadingContext()
   const { isAuthenticated } = useAuth()
 
@@ -34,6 +34,14 @@ const AppLayout = ({ children }) => {
       )}
       <main>{children}</main>
     </>
+  )
+}
+
+const AppLayout = ({ children }) => {
+  return (
+    <App>
+      <Layout>{children}</Layout>
+    </App>
   )
 }
 
