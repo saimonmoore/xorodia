@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { themeGet } from '@styled-system/theme-get'
 import HomeLayout from 'src/layouts/HomeLayout'
 import { routes, navigate } from '@redwoodjs/router'
 
@@ -32,19 +33,47 @@ const ImageButton = styled.img`
 `
 
 const ChoirImage = ({ onClick }) => (
-  <ImageButton src={choirAvatar} alt="Choir Login" onClick={onClick} />
+  <ImageButton
+    src={choirAvatar}
+    alt="Singer"
+    title="Singer"
+    onClick={onClick}
+  />
 )
 
 const DirectorImage = ({ onClick }) => (
-  <ImageButton alt="Director Login" src={directorAvatar} onClick={onClick} />
+  <ImageButton
+    alt="Director"
+    title="Director"
+    src={directorAvatar}
+    onClick={onClick}
+  />
 )
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: ${themeGet('colors.lime')};
+`
+
 const ChoirLogin = () => {
-  return <ChoirImage onClick={() => navigate(routes.choir())} />
+  return (
+    <Wrapper>
+      <h5>Are you a singer?</h5>
+      <ChoirImage onClick={() => navigate(routes.choir())} />
+    </Wrapper>
+  )
 }
 
 const DirectorLogin = () => {
-  return <DirectorImage onClick={() => navigate(routes.director())} />
+  return (
+    <Wrapper>
+      <h5>or a Director?</h5>
+      <DirectorImage onClick={() => navigate(routes.director())} />
+    </Wrapper>
+  )
 }
 
 const HomePage = () => {
