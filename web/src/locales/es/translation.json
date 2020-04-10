@@ -1,10 +1,20 @@
 {
-  "LOGin_BUTTON_LABEL": "Iniciar sesión",
+  "CONSTANTS_VOICE_PARTS_SOPRANO": "Soprano",
+  "CONSTANTS_VOICE_PARTS_MEZZOSOPRANO": "Mezzosoprano",
+  "CONSTANTS_VOICE_PARTS_CONTRALTO": "Contralto",
+  "CONSTANTS_VOICE_PARTS_COUNTERTENOR": "Counter Tenor",
+  "CONSTANTS_VOICE_PARTS_TENOR": "Tenor",
+  "CONSTANTS_VOICE_PARTS_BARITONE": "Baritone",
+  "CONSTANTS_VOICE_PARTS_BASS": "Bass",
+  "LOGIN_BUTTON_LABEL": "Iniciar sesión",
   "LOGOUT_BUTTON_LABEL": "Cerrar sesión",
   "HOME_SINGER_BUTTON_QUESTION": "Eres cantante?",
   "HOME_SINGER_BUTTON_TITLE": "Cantante",
   "HOME_DIRECTOR_BUTTON_TITLE_MALE": "Director",
   "HOME_DIRECTOR_BUTTON_TITLE_FEMALE": "Directora",
   "HOME_DIRECTOR_BUTTON_QUESTION_MALE": "o director?",
-  "HOME_DIRECTOR_BUTTON_QUESTION_FEMALE": "o directora?"
+  "HOME_DIRECTOR_BUTTON_QUESTION_FEMALE": "o directora?",
+  "ROLE_SELECTOR_ONE_MORE_STEP": "Solo un paso mas...",
+  "ROLE_SELECTOR_LABEL": "Voz",
+  "ROLE_SELECTOR_PLACEHOLDER": "Por favor, selecciona cual voz sueles cantar?"
 }

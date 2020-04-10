@@ -5,7 +5,7 @@ import AppLayout from 'src/layouts/AppLayout'
 import { routes, navigate } from '@redwoodjs/router'
 import { useTranslation } from 'react-i18next'
 
-import { AppContext } from 'src/contexts/AppContext'
+import { AuthContext } from 'src/contexts/AuthContext'
 import choirAvatar from './assets/choirAvatar.png'
 import directorAvatar from './assets/directorAvatar.png'
 
@@ -104,7 +104,7 @@ const DirectorLogin = ({ gender = 'FEMALE' }) => {
 const Home = () => {
   const {
     data: { currentUser },
-  } = useContext(AppContext)
+  } = useContext(AuthContext)
 
   const gender = (currentUser && currentUser.gender) || 'FEMALE'
 

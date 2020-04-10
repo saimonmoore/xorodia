@@ -21,6 +21,8 @@ export const schema = gql`
     users: [User]
     user(id: Int!): User
     userByEmail(email: String!): User
+    userSinger(id: Int!): Singer
+    userDirector(id: Int!): Director
   }
 
   input UserInput {

@@ -9,7 +9,7 @@ import styled from 'styled-components'
 import { themeGet } from '@styled-system/theme-get'
 import { useTranslation } from 'react-i18next'
 import App from 'src/components/App'
-import { AppContext } from 'src/contexts/AppContext'
+import { AuthContext } from 'src/contexts/AuthContext'
 import Loading from 'src/components/Loading'
 
 const HomeHeader = styled.div`
@@ -45,7 +45,7 @@ const UserInfo = styled.div`
 const Login = () => {
   const {
     data: { loading, error, isAuthenticated, currentUser, loginFn, logoutFn },
-  } = useContext(AppContext)
+  } = useContext(AuthContext)
 
   const { t } = useTranslation()
 
@@ -88,7 +88,7 @@ const Layout = ({ children }) => {
   )
 }
 
-const HomeLayout = ({ children }) => {
+const AppLayout = ({ children }) => {
   return (
     <App>
       <Layout>{children}</Layout>
@@ -96,4 +96,4 @@ const HomeLayout = ({ children }) => {
   )
 }
 
-export default HomeLayout
+export default AppLayout

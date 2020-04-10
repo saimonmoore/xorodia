@@ -73,7 +73,6 @@ enum VoiceType {
   CONTRALTO
   COUNTERTENOR
   TENOR
-  TREBLE
   BARITONE
   BASS
 }

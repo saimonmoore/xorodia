@@ -1,7 +1,7 @@
 import { useMutation } from '@redwoodjs/web'
 import { Link, routes } from '@redwoodjs/router'
 
-const DELETE_SONG_MUTATION = gql`
+const DELETE_POST_MUTATION = gql`
   mutation DeleteSongMutation($id: Int!) {
     deleteSong(id: $id) {
       id
@@ -11,14 +11,6 @@ const DELETE_SONG_MUTATION = gql`
 
 const MAX_STRING_LENGTH = 150
 
-const timeTag = (datetime) => {
-  return (
-    <time dateTime={datetime} title={datetime}>
-      {new Date(datetime).toUTCString()}
-    </time>
-  )
-}
-
 const truncate = (text) => {
   let output = text
   if (text.length > MAX_STRING_LENGTH) {
@@ -27,8 +19,16 @@ const truncate = (text) => {
   return output
 }
 
+const timeTag = (datetime) => {
+  return (
+    <time dateTime={datetime} title={datetime}>
+      {new Date(datetime).toUTCString()}
+    </time>
+  )
+}
+
 const SongsList = ({ songs }) => {
-  const [deleteSong] = useMutation(DELETE_SONG_MUTATION, {
+  const [deleteSong] = useMutation(DELETE_POST_MUTATION, {
     onCompleted: () => {
       location.reload()
     },
@@ -47,6 +47,12 @@ const SongsList = ({ songs }) => {
           <tr className="bg-gray-300 text-gray-700">
             <th className="font-semibold text-left p-3">id</th>
             <th className="font-semibold text-left p-3">createdAt</th>
+            <th className="font-semibold text-left p-3">updatedAt</th>
+            <th className="font-semibold text-left p-3">user</th>
+            <th className="font-semibold text-left p-3">concerts</th>
+            <th className="font-semibold text-left p-3">singer</th>
+            <th className="font-semibold text-left p-3">director</th>
+            <th className="font-semibold text-left p-3">parts</th>
             <th className="font-semibold text-left p-3">&nbsp;</th>
           </tr>
         </thead>
@@ -58,12 +64,18 @@ const SongsList = ({ songs }) => {
             >
               <td className="p-3">{truncate(song.id)}</td>
               <td className="p-3">{timeTag(song.createdAt)}</td>
+              <td className="p-3">{timeTag(song.updatedAt)}</td>
+              <td className="p-3">{truncate(song.user)}</td>
+              <td className="p-3">{truncate(song.concerts)}</td>
+              <td className="p-3">{truncate(song.singer)}</td>
+              <td className="p-3">{truncate(song.director)}</td>
+              <td className="p-3">{truncate(song.parts)}</td>
               <td className="p-3 pr-4 text-right whitespace-no-wrap">
                 <nav>
                   <ul>
                     <li className="inline-block">
                       <Link
-                        to={routes.song({ id: song.id })}
+                        to={routes.adminSong({ id: song.id })}
                         title={'Show song ' + song.id + ' detail'}
                         className="text-xs bg-gray-100 text-gray-600 hover:bg-gray-600 hover:text-white rounded-sm px-2 py-1 uppercase font-semibold tracking-wide"
                       >
@@ -72,7 +84,7 @@ const SongsList = ({ songs }) => {
                     </li>
                     <li className="inline-block">
                       <Link
-                        to={routes.editSong({ id: song.id })}
+                        to={routes.adminEditSong({ id: song.id })}
                         title={'Edit song ' + song.id}
                         className="text-xs bg-gray-100 text-blue-600 hover:bg-blue-600 hover:text-white rounded-sm px-2 py-1 uppercase font-semibold tracking-wide"
                       >

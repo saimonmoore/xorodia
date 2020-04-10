@@ -1,12 +1,22 @@
+import React, { useContext } from 'react'
+
 import AppLayout from 'src/layouts/AppLayout'
+import ChoirCell from 'src/components/ChoirCell'
+
+import { AuthContext } from 'src/contexts/AuthContext'
+
+const RoleSelection = () => {
+  const {
+    data: { currentUser },
+  } = useContext(AuthContext)
+
+  return <ChoirCell currentUser={currentUser} />
+}
 
 const ChoirPage = () => {
   return (
     <AppLayout>
-      <div>
-        <h1>ChoirPage</h1>
-        <p>Find me in ./web/src/pages/ChoirPage/ChoirPage.js</p>
-      </div>
+      <RoleSelection />
     </AppLayout>
   )
 }

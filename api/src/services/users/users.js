@@ -16,6 +16,22 @@ export const userByEmail = ({ email }) => {
   })
 }
 
+export const userSinger = ({ id }) => {
+  return db.user
+    .findOne({
+      where: { id },
+    })
+    .singer()
+}
+
+export const userDirector = ({ id }) => {
+  return db.user
+    .findOne({
+      where: { id },
+    })
+    .director()
+}
+
 export const createUser = ({ input }) => {
   return db.user.create({
     data: input,

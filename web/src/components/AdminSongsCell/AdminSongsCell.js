@@ -1,6 +1,6 @@
 import { Link, routes } from '@redwoodjs/router'
 
-import Songs from 'src/components/Songs'
+import SongsAdmin from 'src/components/SongsAdmin'
 
 export const QUERY = gql`
   query POSTS {
@@ -33,5 +33,5 @@ export const Empty = () => {
 }
 
 export const Success = ({ songs }) => {
-  return <Songs songs={songs} />
+  return <SongsAdmin songs={songs} />
 }

@@ -1,4 +1,11 @@
 {
+  "CONSTANTS_VOICE_PARTS_SOPRANO": "Soprano",
+  "CONSTANTS_VOICE_PARTS_MEZZOSOPRANO": "Mezzosoprano",
+  "CONSTANTS_VOICE_PARTS_CONTRALTO": "Contralt",
+  "CONSTANTS_VOICE_PARTS_COUNTERTENOR": "Contratenor",
+  "CONSTANTS_VOICE_PARTS_TENOR": "Tenor",
+  "CONSTANTS_VOICE_PARTS_BARITONE": "Baríton",
+  "CONSTANTS_VOICE_PARTS_BASS": "Baix",
   "LOGIN_BUTTON_LABEL": "Iniciar sessió",
   "LOGOUT_BUTTON_LABEL": "Tancar sessió",
   "HOME_SINGER_BUTTON_QUESTION": "Ets cantaire?",
@@ -6,5 +13,8 @@
   "HOME_DIRECTOR_BUTTON_TITLE_MALE": "Director",
   "HOME_DIRECTOR_BUTTON_TITLE_FEMALE": "Directora",
   "HOME_DIRECTOR_BUTTON_QUESTION_MALE": "o director?",
-  "HOME_DIRECTOR_BUTTON_QUESTION_FEMALE": "o directora?"
+  "HOME_DIRECTOR_BUTTON_QUESTION_FEMALE": "o directora?",
+  "ROLE_SELECTOR_ONE_MORE_STEP": "Nomes queda l'ultim pas...",
+  "ROLE_SELECTOR_LABEL": "Veu",
+  "ROLE_SELECTOR_PLACEHOLDER": "Si us plau, selecciona la teva veu preferida..."
 }

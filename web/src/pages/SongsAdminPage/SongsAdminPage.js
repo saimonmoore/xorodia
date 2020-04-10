@@ -1,10 +1,10 @@
 import SongsLayout from 'src/layouts/SongsLayout'
-import SongsCell from 'src/components/SongsCell'
+import AdminSongsCell from 'src/components/AdminSongsCell'
 
 const SongsAdminPage = () => {
   return (
     <SongsLayout>
-      <SongsCell />
+      <AdminSongsCell />
     </SongsLayout>
   )
 }
