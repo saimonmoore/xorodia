@@ -27,6 +27,7 @@ export const schema = gql`
     firstName: String
     lastName: String
     lastName2: String
+    picture: String
     gender: Gender
     director: Int
     singer: Int

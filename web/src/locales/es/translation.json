@@ -1,0 +1,10 @@
+{
+  "LOGin_BUTTON_LABEL": "Iniciar sesión",
+  "LOGOUT_BUTTON_LABEL": "Cerrar sesión",
+  "HOME_SINGER_BUTTON_QUESTION": "Eres cantante?",
+  "HOME_SINGER_BUTTON_TITLE": "Cantante",
+  "HOME_DIRECTOR_BUTTON_TITLE_MALE": "Director",
+  "HOME_DIRECTOR_BUTTON_TITLE_FEMALE": "Directora",
+  "HOME_DIRECTOR_BUTTON_QUESTION_MALE": "o director?",
+  "HOME_DIRECTOR_BUTTON_QUESTION_FEMALE": "o directora?"
+}

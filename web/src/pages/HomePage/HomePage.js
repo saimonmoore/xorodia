@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { themeGet } from '@styled-system/theme-get'
 import HomeLayout from 'src/layouts/HomeLayout'
 import { routes, navigate } from '@redwoodjs/router'
+import { useTranslation } from 'react-i18next'
 
 import choirAvatar from './assets/choirAvatar.png'
 import directorAvatar from './assets/directorAvatar.png'
@@ -32,23 +33,35 @@ const ImageButton = styled.img`
   }
 `
 
-const ChoirImage = ({ onClick }) => (
-  <ImageButton
-    src={choirAvatar}
-    alt="Singer"
-    title="Singer"
-    onClick={onClick}
-  />
-)
+const ChoirImage = ({ onClick }) => {
+  const { t } = useTranslation()
 
-const DirectorImage = ({ onClick }) => (
-  <ImageButton
-    alt="Director"
-    title="Director"
-    src={directorAvatar}
-    onClick={onClick}
-  />
-)
+  return (
+    <ImageButton
+      src={choirAvatar}
+      alt={t('HOME_SINGER_BUTTON_TITLE')}
+      title={t('HOME_SINGER_BUTTON_TITLE')}
+      onClick={onClick}
+    />
+  )
+}
+
+const DirectorImage = ({ onClick, gender }) => {
+  const { t } = useTranslation()
+
+  return (
+    <ImageButton
+      alt={t(
+        `HOME_DIRECTOR_BUTTON_TITLE_${gender === 'FEMALE' ? 'FE' : ''}MALE`
+      )}
+      title={t(
+        `HOME_DIRECTOR_BUTTON_TITLE_${gender === 'FEMALE' ? 'FE' : ''}MALE`
+      )}
+      src={directorAvatar}
+      onClick={onClick}
+    />
+  )
+}
 
 const Wrapper = styled.div`
   display: flex;
@@ -59,19 +72,30 @@ const Wrapper = styled.div`
 `
 
 const ChoirLogin = () => {
+  const { t } = useTranslation()
+
   return (
     <Wrapper>
-      <h5>Are you a singer?</h5>
+      <h5>{t(`HOME_SINGER_BUTTON_QUESTION`)}</h5>
       <ChoirImage onClick={() => navigate(routes.choir())} />
     </Wrapper>
   )
 }
 
-const DirectorLogin = () => {
+const DirectorLogin = ({ gender = 'FEMALE' }) => {
+  const { t } = useTranslation()
+
   return (
     <Wrapper>
-      <h5>or a Director?</h5>
-      <DirectorImage onClick={() => navigate(routes.director())} />
+      <h5>
+        {t(
+          `HOME_DIRECTOR_BUTTON_QUESTION_${gender === 'FEMALE' ? 'FE' : ''}MALE`
+        )}
+      </h5>
+      <DirectorImage
+        gender={gender}
+        onClick={() => navigate(routes.director())}
+      />
     </Wrapper>
   )
 }

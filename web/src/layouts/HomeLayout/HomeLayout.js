@@ -6,6 +6,7 @@ import {
 } from '@redwoodjs/router'
 import styled from 'styled-components'
 import { themeGet } from '@styled-system/theme-get'
+import { useTranslation } from 'react-i18next'
 import App from 'src/components/App'
 import Loading from 'src/components/Loading'
 import { useAuth } from 'src/policies/PersistedUserPolicy'
@@ -22,7 +23,9 @@ const HomeHeader = styled.div`
 `
 
 const Button = styled.button`
+  ${themeGet('buttons.primary')}
   height: ${themeGet('lineHeights.5')};
+  cursor: pointer;
 `
 
 const Avatar = styled.img`
@@ -49,6 +52,8 @@ const Login = () => {
     authResult,
   } = useAuth()
 
+  const { t } = useTranslation()
+
   if (loading) return <Loading />
   if (error) {
     console.log('[Login] error: ', error)
@@ -66,19 +71,11 @@ const Login = () => {
           alt={user.firstName}
           title={user.firstName}
         />
-        <Button onClick={logout}>Logout</Button>
+        <Button onClick={logoutFn}>{t('LOGOUT_BUTTON_LABEL')}</Button>
       </UserInfo>
     )
   } else {
-    return (
-      <Button
-        onClick={() => {
-          login()
-        }}
-      >
-        Login
-      </Button>
-    )
+    return <Button onClick={loginFn}>{t('LOGIN_BUTTON_LABEL')}</Button>
   }
 }
 
