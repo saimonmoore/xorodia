@@ -1,18 +1,15 @@
+import React, { useContext } from 'react'
 import {
   Link,
   routes,
   navigate,
   usePageLoadingContext,
 } from '@redwoodjs/router'
-import { useAuth } from 'react-use-auth'
 import App from 'src/components/App'
 import Loading from 'src/components/Loading'
 
 const Layout = ({ children }) => {
   const { loading } = usePageLoadingContext()
-  const { isAuthenticated } = useAuth()
-
-  if (!isAuthenticated) return navigate(routes.root())
 
   return (
     <>

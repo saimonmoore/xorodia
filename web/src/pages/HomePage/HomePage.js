@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { themeGet } from '@styled-system/theme-get'
 import HomeLayout from 'src/layouts/HomeLayout'
 import { routes, navigate } from '@redwoodjs/router'
 import { useTranslation } from 'react-i18next'
 
+import { AppContext } from 'src/contexts/AppContext'
 import choirAvatar from './assets/choirAvatar.png'
 import directorAvatar from './assets/directorAvatar.png'
 
@@ -100,13 +101,25 @@ const DirectorLogin = ({ gender = 'FEMALE' }) => {
   )
 }
 
+const Home = () => {
+  const {
+    data: { currentUser },
+  } = useContext(AppContext)
+
+  const gender = (currentUser && currentUser.gender) || 'FEMALE'
+
+  return (
+    <HomeWrapper>
+      <ChoirLogin />
+      <DirectorLogin gender={gender} />
+    </HomeWrapper>
+  )
+}
+
 const HomePage = () => {
   return (
     <HomeLayout>
-      <HomeWrapper>
-        <ChoirLogin />
-        <DirectorLogin />
-      </HomeWrapper>
+      <Home />
     </HomeLayout>
   )
 }

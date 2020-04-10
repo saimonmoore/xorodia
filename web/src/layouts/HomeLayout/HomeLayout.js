@@ -1,3 +1,4 @@
+import React, { useContext } from 'react'
 import {
   Link,
   routes,
@@ -8,8 +9,8 @@ import styled from 'styled-components'
 import { themeGet } from '@styled-system/theme-get'
 import { useTranslation } from 'react-i18next'
 import App from 'src/components/App'
+import { AppContext } from 'src/contexts/AppContext'
 import Loading from 'src/components/Loading'
-import { useAuth } from 'src/policies/PersistedUserPolicy'
 
 const HomeHeader = styled.div`
   display: flex;
@@ -43,14 +44,8 @@ const UserInfo = styled.div`
 
 const Login = () => {
   const {
-    loading,
-    error,
-    isAuthenticated,
-    user,
-    login,
-    logout,
-    authResult,
-  } = useAuth()
+    data: { loading, error, isAuthenticated, currentUser, loginFn, logoutFn },
+  } = useContext(AppContext)
 
   const { t } = useTranslation()
 
@@ -60,16 +55,13 @@ const Login = () => {
     return
   }
 
-  console.log('[Login] authResult: ', authResult)
-  console.log('[Login] user: ', user)
-
   if (isAuthenticated()) {
     return (
       <UserInfo>
         <Avatar
-          src={user.picture}
-          alt={user.firstName}
-          title={user.firstName}
+          src={currentUser.picture}
+          alt={currentUser.firstName}
+          title={currentUser.firstName}
         />
         <Button onClick={logoutFn}>{t('LOGOUT_BUTTON_LABEL')}</Button>
       </UserInfo>
@@ -81,10 +73,6 @@ const Login = () => {
 
 const Layout = ({ children }) => {
   const { loading } = usePageLoadingContext()
-  const { isAuthenticated } = useAuth()
-
-  if (!isAuthenticated) return navigate(routes.root())
-
   return (
     <>
       {loading && <Loading />}
