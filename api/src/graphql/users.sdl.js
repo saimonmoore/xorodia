@@ -6,6 +6,7 @@ export const schema = gql`
     lastName: String
     lastName2: String
     picture: String
+    language: String
     gender: Gender!
     director: Director
     singer: Singer
@@ -28,6 +29,7 @@ export const schema = gql`
     lastName: String
     lastName2: String
     picture: String
+    language: String
     gender: Gender
     director: Int
     singer: Int
