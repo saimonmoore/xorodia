@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { themeGet } from '@styled-system/theme-get'
-import HomeLayout from 'src/layouts/HomeLayout'
+import AppLayout from 'src/layouts/AppLayout'
 import { routes, navigate } from '@redwoodjs/router'
 import { useTranslation } from 'react-i18next'
 
@@ -118,9 +118,9 @@ const Home = () => {
 
 const HomePage = () => {
   return (
-    <HomeLayout>
+    <AppLayout>
       <Home />
-    </HomeLayout>
+    </AppLayout>
   )
 }
 
