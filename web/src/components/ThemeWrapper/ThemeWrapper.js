@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { StylesProvider } from '@material-ui/core/styles'
 import { ThemeProvider } from 'styled-components'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
@@ -11,12 +12,14 @@ const ThemeWrapper = ({ children }) => {
   library.add(fas)
 
   return (
-    <ThemeProvider theme={baseTheme}>
-      <>
-        <GlobalStyles />
-        {children}
-      </>
-    </ThemeProvider>
+    <StylesProvider injectFirst>
+      <ThemeProvider theme={baseTheme}>
+        <>
+          <GlobalStyles />
+          {children}
+        </>
+      </ThemeProvider>
+    </StylesProvider>
   )
 }
 

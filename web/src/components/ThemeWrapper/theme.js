@@ -16,7 +16,7 @@ export const primaryPalette = {
 }
 
 export const backgroundColors = {
-  appBackground: greyscale.grey100,
+  appBackground: greyscale.grey800,
   cardBackground: primaryPalette.white,
 }
 
@@ -28,6 +28,7 @@ export const extendedPalette = {
   orange: '#ffa000',
   pigeon: '#365568',
   red: '#f33a58',
+  appGreen: '#545454'
 }
 
 export const textColor = {

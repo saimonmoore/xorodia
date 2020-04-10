@@ -1,4 +1,5 @@
 import React from 'react'
+import 'typeface-roboto'
 import { createGlobalStyle } from 'styled-components'
 
 import { baseTheme } from '../theme'
