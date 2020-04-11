@@ -1,4 +1,6 @@
 import { useQuery, useMutation } from '@redwoodjs/web'
+import { useSnackbar } from 'notistack'
+import { useTranslation } from 'react-i18next'
 import { routes, navigate } from '@redwoodjs/router'
 import { useAuth as useAuth0Auth } from 'react-use-auth'
 
@@ -68,6 +70,9 @@ const PersistUser = ({
   authResult,
   renderProp,
 }) => {
+  const { enqueueSnackbar } = useSnackbar()
+  const { t } = useTranslation()
+
   console.log(
     '[PersistUser] =====> isAuthenticating: ',
     isAuthenticating,
@@ -141,6 +146,11 @@ const PersistUser = ({
     logoutFn,
     authResult,
   }
+
+  enqueueSnackbar(t('EVENTS_LOGGED_IN'), {
+    variant: 'info',
+    preventDuplicate: true,
+  })
 
   return <>{renderProp(props)}</>
 }

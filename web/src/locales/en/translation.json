@@ -6,6 +6,7 @@
   "CONSTANTS_VOICE_PARTS_TENOR": "Tenor",
   "CONSTANTS_VOICE_PARTS_BARITONE": "Baritone",
   "CONSTANTS_VOICE_PARTS_BASS": "Bass",
+  "EVENTS_LOGGED_IN": "Logged in",
   "LOGIN_BUTTON_LABEL": "Sign in",
   "LOGOUT_BUTTON_LABEL": "Sign out",
   "HOME_SINGER_BUTTON_QUESTION": "Are you a singer?",

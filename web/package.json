@@ -16,6 +16,7 @@
     "@redwoodjs/web": "^0.4.0",
     "@styled-system/theme-get": "^5.1.2",
     "i18next": "^19.4.0",
+    "notistack": "^0.9.9",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

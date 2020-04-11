@@ -6,6 +6,7 @@
   "CONSTANTS_VOICE_PARTS_TENOR": "Tenor",
   "CONSTANTS_VOICE_PARTS_BARITONE": "Baríton",
   "CONSTANTS_VOICE_PARTS_BASS": "Baix",
+  "EVENTS_LOGGED_IN": "Sessió iniciat",
   "LOGIN_BUTTON_LABEL": "Iniciar sessió",
   "LOGOUT_BUTTON_LABEL": "Tancar sessió",
   "HOME_SINGER_BUTTON_QUESTION": "Ets cantaire?",
