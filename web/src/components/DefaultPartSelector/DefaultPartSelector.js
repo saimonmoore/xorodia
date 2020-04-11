@@ -71,6 +71,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: ${themeGet('space.7')};
   > * {
     margin-bottom: ${themeGet('space.5')};
     color: ${themeGet('colors.lime')};
