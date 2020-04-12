@@ -2,9 +2,10 @@ import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
 import { themeGet } from '@styled-system/theme-get'
 import { makeStyles } from '@material-ui/core/styles'
+import Button from '@material-ui/core/Button'
 import Card from '@material-ui/core/Card'
-import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
+import CardActions from '@material-ui/core/CardActions'
 import TextField from '@material-ui/core/TextField'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import { useMutation } from '@redwoodjs/web'
@@ -45,13 +46,18 @@ const CREATE_SINGER_MUTATION = gql`
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
     height: theme.spacing(256),
     flexWrap: 'wrap',
     '& > *': {
       margin: theme.spacing(1),
       width: theme.spacing(16),
-      height: theme.spacing(16),
+      height: theme.spacing(8),
     },
+  },
+  input: {
+    color: 'chartreuse',
   },
 }))
 
@@ -65,6 +71,10 @@ const Section = styled(Card)`
   width: 520px;
   margin-left: ${themeGet('space.5')}
   margin-right: ${themeGet('space.5')}
+`
+
+const Header = styled.div`
+  width: auto;
 `
 
 const Wrapper = styled.div`
@@ -124,11 +134,11 @@ const DefaultPartSelector = () => {
   return (
     <Wrapper>
       <div className={classes.root}>
+        <Header>
+          <h4>{t('ROLE_SELECTOR_ONE_MORE_STEP')}</h4>
+        </Header>
         <Section elevation={3}>
           <CardContent>
-            <h4>{t('ROLE_SELECTOR_ONE_MORE_STEP')}</h4>
-          </CardContent>
-          <CardActions>
             <ComboBox
               initialValue={undefined}
               options={options}
@@ -136,7 +146,15 @@ const DefaultPartSelector = () => {
               onChange={(newValue) => {
                 console.log('Now set to: ', newValue)
               }}
+              classes={{
+                groupLabel: classes.input,
+              }}
             />
+          </CardContent>
+          <CardActions>
+            <Button color="primary" variant="contained">
+              Next
+            </Button>
           </CardActions>
         </Section>
       </div>

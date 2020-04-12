@@ -147,10 +147,13 @@ const PersistUser = ({
     authResult,
   }
 
-  enqueueSnackbar(t('EVENTS_LOGGED_IN'), {
-    variant: 'info',
-    preventDuplicate: true,
-  })
+  // TODO: Only issue once
+  if (!isAuthenticating && user) {
+    enqueueSnackbar(t('EVENTS_LOGGED_IN'), {
+      variant: 'info',
+      preventDuplicate: true,
+    })
+  }
 
   return <>{renderProp(props)}</>
 }
