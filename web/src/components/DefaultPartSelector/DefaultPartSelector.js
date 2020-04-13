@@ -37,8 +37,8 @@ const ComboBox = ({ initialValue, label, options, onChange }) => {
 }
 
 const CREATE_SINGER_MUTATION = gql`
-  mutation CreateSingerMutation($input: SingerInput!) {
-    createSinger(input: $input) {
+  mutation CreateSingerMutation($input: SingerWithUserInput!) {
+    createSingerWithUser(input: $input) {
       id
     }
   }
@@ -121,7 +121,22 @@ const DefaultPartSelector = () => {
     )
   }
 
-  console.log('[DefaultPartSelector] creatSinger: ', createSinger)
+  const validateAndPersist = () => {
+    if (!defaultPart) return
+    if (defaultPart && !defaultPart.id.length) return
+
+    const singerInput = {
+      defaultPart: defaultPart.id,
+      user: {
+        connect: {
+          id: currentUser.id,
+        },
+      },
+    }
+
+    createSinger({ variables: { input: singerInput } })
+  }
+
   // if (!singer) {
   //   const singerInput = {
   //     user: currentUser.id,

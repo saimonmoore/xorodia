@@ -22,8 +22,22 @@ export const schema = gql`
     songs: Int
   }
 
+  input UserSetConnection {
+    id: Int!
+  }
+
+  input UserRelationUpdate {
+    connect: UserSetConnection
+  }
+
+  input SingerWithUserInput {
+    defaultPart: VoiceType
+    user: UserRelationUpdate
+  }
+
   type Mutation {
     createSinger(input: SingerInput!): Singer
+    createSingerWithUser(input: SingerWithUserInput!): Singer
     updateSinger(id: Int!, input: SingerInput!): Singer
     deleteSinger(id: Int!): Singer
   }

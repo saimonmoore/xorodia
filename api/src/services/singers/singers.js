@@ -16,6 +16,12 @@ export const createSinger = ({ input }) => {
   })
 }
 
+export const createSingerWithUser = ({ input }) => {
+  return db.singer.create({
+    data: input,
+  })
+}
+
 export const updateSinger = ({ id, input }) => {
   return db.singer.update({
     data: input,
