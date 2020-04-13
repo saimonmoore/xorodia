@@ -20,8 +20,21 @@ export const schema = gql`
     concerts: Int
   }
 
+  input UserSetConnection {
+    id: Int!
+  }
+
+  input UserRelationUpdate {
+    connect: UserSetConnection
+  }
+
+  input DirectorWithUserInput {
+    user: UserRelationUpdate
+  }
+
   type Mutation {
     createDirector(input: DirectorInput!): Director
+    createDirectorWithUser(input: DirectorWithUserInput!): Singer
     updateDirector(id: Int!, input: DirectorInput!): Director
     deleteDirector(id: Int!): Director
   }

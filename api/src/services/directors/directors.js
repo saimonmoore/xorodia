@@ -16,6 +16,12 @@ export const createDirector = ({ input }) => {
   })
 }
 
+export const createDirectorWithUser = ({ input }) => {
+  return db.director.create({
+    data: input,
+  })
+}
+
 export const updateDirector = ({ id, input }) => {
   return db.director.update({
     data: input,
