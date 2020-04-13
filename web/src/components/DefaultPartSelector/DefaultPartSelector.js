@@ -17,17 +17,20 @@ import { VOICE_PARTS } from 'src/helpers'
 
 const ComboBox = ({ initialValue, label, options, onChange }) => {
   const [value, setValue] = useState(initialValue)
+  console.log('[Combobox] initialValue: ', initialValue, value)
 
   return (
     <Autocomplete
       id="combo-box-demo"
       options={options}
       getOptionLabel={(option) => option.title}
+      getOptionSelected={(option, value) => option.id === value.id}
       style={{ width: 300 }}
       value={value}
-      onChange={(event, newValue) => {
-        setValue(newValue)
-        onChange && onChange(newValue)
+      onChange={(event, option) => {
+        console.log('[Combobox] setting new option: ', option)
+        setValue(option)
+        onChange && onChange(option)
       }}
       renderInput={(params) => (
         <TextField {...params} label={label} variant="outlined" />
@@ -66,7 +69,7 @@ const Section = styled(Card)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: ${themeGet('colors.appGreen')};
+  background-color: ${themeGet('colors.randomCyan')};
   height: 300px;
   width: 520px;
   margin-left: ${themeGet('space.5')}
@@ -96,6 +99,10 @@ const DefaultPartSelector = () => {
     title: t(VOICE_PARTS[key].tr),
   }))
 
+  options.unshift({ id: '', title: '' })
+
+  const [defaultPart, setDefaultPart] = useState(options[0])
+
   const classes = useStyles()
 
   const {
@@ -106,9 +113,9 @@ const DefaultPartSelector = () => {
     createSinger,
     { loading: isCreatingSinger, error: singerCreationError },
   ] = useMutation(CREATE_SINGER_MUTATION, {
-    onCompleted: (data) => {
-      // TODO: Dispatch notification
-      console.log('[DefaultPartSelector] created singer: ', data, currentUser)
+    onCompleted: (result) => {
+      console.log('Dispatch notification, role saved!', result)
+      navigate(routes.choir())
     },
   })
 
@@ -155,20 +162,20 @@ const DefaultPartSelector = () => {
         <Section elevation={3}>
           <CardContent>
             <ComboBox
-              initialValue={undefined}
+              initialValue={defaultPart}
               options={options}
               label={t('ROLE_SELECTOR_PLACEHOLDER')}
-              onChange={(newValue) => {
-                console.log('Now set to: ', newValue)
-              }}
-              classes={{
-                groupLabel: classes.input,
-              }}
+              onChange={(option) => setDefaultPart(option)}
+              classes={{ groupLabel: classes.input }}
             />
           </CardContent>
           <CardActions>
-            <Button color="primary" variant="contained">
-              Next
+            <Button
+              color="primary"
+              variant="contained"
+              onClick={validateAndPersist}
+            >
+              {t('BUTTON_NEXT')}
             </Button>
           </CardActions>
         </Section>
