@@ -1,5 +1,6 @@
 {
   "APP_BAR_MENU_ITEM_PROFILE": "Perfil",
+  "BUTTON_NEXT": "Seguent",
   "CONSTANTS_VOICE_PARTS_SOPRANO": "Soprano",
   "CONSTANTS_VOICE_PARTS_MEZZOSOPRANO": "Mezzosoprano",
   "CONSTANTS_VOICE_PARTS_CONTRALTO": "Contralt",
@@ -18,5 +19,5 @@
   "HOME_DIRECTOR_BUTTON_QUESTION_FEMALE": "o directora?",
   "ROLE_SELECTOR_ONE_MORE_STEP": "Nomes queda l'ultim pas...",
   "ROLE_SELECTOR_LABEL": "Veu",
-  "ROLE_SELECTOR_PLACEHOLDER": "Si us plau, selecciona la teva veu preferida..."
+  "ROLE_SELECTOR_PLACEHOLDER": "Si us plau, selecciona la teva veu ..."
 }

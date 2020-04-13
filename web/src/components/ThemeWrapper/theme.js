@@ -28,7 +28,8 @@ export const extendedPalette = {
   orange: '#ffa000',
   pigeon: '#365568',
   red: '#f33a58',
-  appGreen: '#545454'
+  appGreen: '#545454',
+  randomCyan: '#cfe5e8',
 }
 
 export const textColor = {
