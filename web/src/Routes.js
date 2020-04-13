@@ -124,6 +124,7 @@ const Routes = () => {
       <Route path="/admin/users" page={UsersAdminPage} name="adminUsers" />
       <Route path="/director" page={DirectorPage} name="director" />
       <Route path="/choir" page={ChoirPage} name="choir" />
+      <Route path="/songs" page={SongsPage} name="songs" />
       <Route path="/about" page={AboutPage} name="about" />
       <Route path="/auth0_callback" page={Auth0Callback} name="auth0Callback" />
       <Route path="/" page={HomePage} name="home" />

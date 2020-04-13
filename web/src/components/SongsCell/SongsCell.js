@@ -1,31 +1,34 @@
 import React, { useContext } from 'react'
 import { Link, routes, navigate } from '@redwoodjs/router'
 
-import DefaultPartSelector from 'src/components/DefaultPartSelector'
 import Songs from 'src/components/Songs'
 import Spinner from 'src/components/Loading'
 import { AppContext } from 'src/contexts/AppContext'
 
+// TODO: Users songs
 export const QUERY = gql`
-  query FIND_USER_SINGER($id: Int!) {
-    singer: userSinger(id: $id) {
+  query SONGS {
+    songs {
       id
+      createdAt
+      updatedAt
     }
   }
 `
 
 export const beforeQuery = ({ currentUser }) => {
-  return { variables: { id: currentUser.id } }
+  return { variables: {} }
+  // return { variables: { id: currentUser.id } }
 }
 
 export const Loading = () => <Spinner />
 
-export const Empty = () => <DefaultPartSelector />
+export const Empty = () => {
+  return <div className="text-center">{'No songs yet. '}</div>
+}
 
 export const Failure = ({ error }) => <div>Error: {error.message}</div>
 
-export const Success = ({ singer }) => {
-  navigate(routes.songs())
-
-  return <Spinner />
+export const Success = ({ songs }) => {
+  return <Songs songs={songs} />
 }

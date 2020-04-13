@@ -12,6 +12,7 @@ import { useMutation } from '@redwoodjs/web'
 import { useTranslation } from 'react-i18next'
 import { Link, routes, navigate } from '@redwoodjs/router'
 import { AuthContext } from 'src/contexts/AuthContext'
+import { AppContext } from 'src/contexts/AppContext'
 import Loading from 'src/components/Loading'
 import { VOICE_PARTS } from 'src/helpers'
 
@@ -109,12 +110,22 @@ const DefaultPartSelector = () => {
     data: { currentUser },
   } = useContext(AuthContext)
 
+  const {
+    actions: { setSinger },
+  } = useContext(AppContext)
+
   const [
     createSinger,
     { loading: isCreatingSinger, error: singerCreationError },
   ] = useMutation(CREATE_SINGER_MUTATION, {
     onCompleted: (result) => {
-      console.log('Dispatch notification, role saved!', result)
+      console.log('Dispatch notification, role saved!', result, setSinger)
+
+      // if (singer) {
+      //   console.log('[ChoirCell#Success] Setting singer: ', singer)
+      //   setSinger(singer)
+      // }
+
       navigate(routes.choir())
     },
   })

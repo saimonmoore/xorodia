@@ -27,7 +27,7 @@ const truncate = (text) => {
   return output
 }
 
-const SongsList = ({ songs }) => {
+const SongsList = ({ singer, songs }) => {
   const [deleteSong] = useMutation(DELETE_SONG_MUTATION, {
     onCompleted: () => {
       location.reload()
@@ -51,7 +51,7 @@ const SongsList = ({ songs }) => {
           </tr>
         </thead>
         <tbody>
-          {songs.map((song) => (
+          {(songs || []).map((song) => (
             <tr
               key={song.id}
               className="odd:bg-gray-100 even:bg-white border-t"
