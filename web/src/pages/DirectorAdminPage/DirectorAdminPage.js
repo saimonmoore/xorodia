@@ -1,10 +1,10 @@
 import DirectorsLayout from 'src/layouts/DirectorsLayout'
-import DirectorCell from 'src/components/DirectorCell'
+import AdminDirectorCell from 'src/components/AdminDirectorCell'
 
 const DirectorAdminPage = ({ id }) => {
   return (
     <DirectorsLayout>
-      <DirectorCell id={id} />
+      <AdminDirectorCell id={id} />
     </DirectorsLayout>
   )
 }

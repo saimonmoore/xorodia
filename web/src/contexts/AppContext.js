@@ -5,14 +5,16 @@ export const AppContextConsumer = AppContext.Consumer
 
 const AppContextProvider = ({ children }) => {
   const [singer, setSinger] = useState()
+  const [director, setDirector] = useState()
 
   return (
     <AppContext.Provider
       value={{
         data: {
           singer,
+          director,
         },
-        actions: { setSinger },
+        actions: { setSinger, setDirector },
       }}
     >
       {children}

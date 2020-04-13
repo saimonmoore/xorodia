@@ -4,7 +4,6 @@ import { Link, routes, navigate } from '@redwoodjs/router'
 import DefaultPartSelector from 'src/components/DefaultPartSelector'
 import Songs from 'src/components/Songs'
 import Spinner from 'src/components/Loading'
-import { AppContext } from 'src/contexts/AppContext'
 
 export const QUERY = gql`
   query FIND_USER_SINGER($id: Int!) {

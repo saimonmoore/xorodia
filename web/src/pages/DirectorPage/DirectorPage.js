@@ -1,12 +1,22 @@
+import React, { useContext } from 'react'
+
 import AppLayout from 'src/layouts/AppLayout'
+import DirectorCell from 'src/components/DirectorCell'
+
+import { AuthContext } from 'src/contexts/AuthContext'
+
+const DirectorPersist = () => {
+  const {
+    data: { currentUser },
+  } = useContext(AuthContext)
+
+  return <DirectorCell currentUser={currentUser} />
+}
 
 const DirectorPage = () => {
   return (
     <AppLayout>
-      <div>
-        <h1>DirectorPage</h1>
-        <p>Find me in ./web/src/pages/DirectorPage/DirectorPage.js</p>
-      </div>
+      <DirectorPersist />
     </AppLayout>
   )
 }
